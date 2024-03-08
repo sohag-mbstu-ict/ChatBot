@@ -8,6 +8,9 @@ from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 import os
+import time
+import random
+import string
 
  
 
@@ -39,14 +42,34 @@ class chatbot_functionality:
         conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=vector_store.as_retriever(), memory=memory)
         return conversation_chain
 
-    def user_input(self,user_question):
+    def generate_session_id(self):
+        timestamp = int(time.time() * 1000)
+        random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=6))
+        session_id = f"{timestamp}_{random_string}"
+        return session_id
+
+    def user_input(self, user_question):
+        session_id = self.generate_session_id()
+        start_time = time.time()  # Record start time
+
         response = st.session_state.conversation({'question': user_question})
         st.session_state.chatHistory = response['chat_history']
+        
+        end_time = time.time()  # Record end time
+        response_time = end_time - start_time  # Calculate response time
+        
+        chat_history_with_session_id = []  # List to store messages with session ID
+
         for i, message in enumerate(st.session_state.chatHistory):
-            if i%2 == 0:
-                st.write("Human:🚺 ", i,message.content)
+            if i % 2 == 0:
+                chat_history_with_session_id.append({'session_id': session_id, 'speaker': 'Human 🚺', 'question': message.content})
             else:
-                st.write("response: ✔️", i,message.content)
+                chat_history_with_session_id.append({'session_id': session_id, 'speaker': 'ChatBot ', 
+                                                     'response_time' : response_time, 'response': message.content})
+        
+        st.write("Session ID:", session_id)
+        st.write("Response time:", response_time, "seconds")
+        st.write("Chat history with session ID:", chat_history_with_session_id)
     
 
     

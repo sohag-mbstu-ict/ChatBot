@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 from chatbot import chatbot_functionality
 
 st.set_page_config("ChatBot")
@@ -15,6 +16,8 @@ chatbot_obj = chatbot_functionality(api)  # create class instance
 
 if user_question:
     chatbot_obj.user_input(user_question)
+
+    
 with st.sidebar:
     st.title("Settings")
     st.subheader("Upload your Documents")
