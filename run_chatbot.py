@@ -14,10 +14,9 @@ if "chatHistory" not in st.session_state:
 api='AIzaSyCpeOogkzyWebU0JxyrPu2mC4zK6UKb4j8'
 chatbot_obj = chatbot_functionality(api)  # create class instance
 
-if user_question:
-    chatbot_obj.user_input(user_question)
 
-    
+
+print("1111111111111111111111111111111111111111")
 with st.sidebar:
     st.title("Settings")
     st.subheader("Upload your Documents")
@@ -31,5 +30,7 @@ with st.sidebar:
             st.success("Done")
     
     
+if user_question:
+    chatbot_obj.user_input(user_question)
     
     
