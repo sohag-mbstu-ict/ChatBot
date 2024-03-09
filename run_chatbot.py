@@ -1,6 +1,6 @@
 import streamlit as st
 import time
-from chatbot import chatbot_functionality
+from chatbot_app.chatbot import chatbot_functionality
 
 st.set_page_config("ChatBot")
 st.header("Chat with Multiple uploaded PDF 💬")
