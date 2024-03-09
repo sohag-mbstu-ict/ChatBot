@@ -31,24 +31,28 @@ python manage.py runserver
 
 LangChain is a framework for building conversational AI systems developed by Google. It provides tools and libraries for various natural language processing tasks, such as text embedding, language modeling, and conversational retrieval. 
 
-### Text Embeddings:
-LangChain offers tools for generating embeddings (vector representations) of text data. These embeddings capture semantic similarities between words and sentences, enabling advanced natural language understanding tasks.
+Text Embeddings
 
-### Language Models (LLMs):
-LangChain includes pre-trained language models (LLMs) that can generate high-quality responses to user queries. These models are trained on large corpora of text data and are fine-tuned for specific conversational tasks.
+Language Models (LLMs)
 
-### Vector Stores:
-Vector stores are data structures optimized for efficient retrieval of text embeddings. LangChain provides vector store implementations that enable fast lookup of similar text passages based on their embeddings.
+Vector Stores
 
-### Conversational Retrieval Chains:
-A conversational retrieval chain is a pipeline that combines a language model with a vector store to retrieve relevant responses to user queries. LangChain provides tools for building and customizing retrieval chains tailored to specific conversational use cases.
+Conversational Retrieval Chains
 
-### Memory Mechanisms:
-LangChain includes memory mechanisms for storing and recalling previous interactions in a conversation. These mechanisms enable context-aware responses and help maintain coherence in long conversations.
+Memory Mechanisms
 
-### Integration with External Systems:
-LangChain is designed to integrate seamlessly with other AI systems and applications. It provides APIs and interfaces for interacting with external data sources, allowing developers to incorporate LangChain-powered chatbots into their existing workflows
+Integration with External Systems
 
+
+## Integrate Django with streamlit
+```bash
+# Command to run the Streamlit app
+command = ['streamlit', 'run', 'run_chatbot.py']  
+# Run the Streamlit app as a subprocess
+process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)   
+# Read the output of the Streamlit app
+output, _ = process.communicate()
+```
 
 ## Chat with Multiple PDF
 Django and Streamlit user interface is used to upload multiple PDF files and ask questions.
@@ -59,12 +63,12 @@ Django and Streamlit user interface is used to upload multiple PDF files and ask
 
 Used Streamlit to create a user interface where users can upload multiple PDF files and ask questions. Users can provide text input boxes for users to enter questions. Used Python libraries such as PyPDF2 to extract text from the uploaded PDF files. Process each PDF file individually to extract its text content.
 
-## Chat with the pdf file
+## Chat with pdf file
 ![](https://github.com/sohag-mbstu-ict/ChatBot/blob/main/Screenshots/query1.png)
 
 This figure shows a simple interaction between the user and the chatbot, where the chatbot provides information in response to the user's query about SQL. The session ID helps keep track of the conversation context and history for future reference or analysis.
 
-## Chat with the pdf file
+## Chat with multiple pdf files
 ![](https://github.com/sohag-mbstu-ict/ChatBot/blob/main/Screenshots/chat_with_multiple_pdf.png)
 
 Overall, chatting with multiple PDFs using PaLM 2 and LangChain enables users to access comprehensive information in a conversational manner, leveraging advanced language understanding capabilities to provide accurate and personalized responses.
