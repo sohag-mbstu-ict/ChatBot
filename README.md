@@ -22,9 +22,20 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
+## Integrate Django with streamlit
+```bash
+# Command to run the Streamlit app
+command = ['streamlit', 'run', 'run_chatbot.py']  
+# Run the Streamlit app as a subprocess
+process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)   
+# Read the output of the Streamlit app
+output, _ = process.communicate()
+```
+
 
 # Architecture of LangChain
 ![](https://github.com/sohag-mbstu-ict/ChatBot/blob/main/Screenshots/LangChain_architecture.png)
+
 
 
 ## LangChain's key components and functionalities
@@ -44,15 +55,7 @@ Memory Mechanisms
 Integration with External Systems
 
 
-## Integrate Django with streamlit
-```bash
-# Command to run the Streamlit app
-command = ['streamlit', 'run', 'run_chatbot.py']  
-# Run the Streamlit app as a subprocess
-process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)   
-# Read the output of the Streamlit app
-output, _ = process.communicate()
-```
+
 
 ## Chat with Multiple PDF
 Django and Streamlit user interface is used to upload multiple PDF files and ask questions.
