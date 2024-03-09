@@ -1,6 +1,6 @@
 
 ## Deployment to streamlit.io
-I have deployed this app to https://streamlit.io/ free server.  The link is : https://chatbot-r7xbxre856fudvodqt8bul.streamlit.app/
+I have deployed this app to streamlit_io/ free server.  The link is : https://chatbot-r7xbxre856fudvodqt8bul.streamlit.app/
 
 
 ## Dependencies:
@@ -71,6 +71,25 @@ This figure shows a simple interaction between the user and the chatbot, where t
 ## Chat with multiple pdf files
 ![](https://github.com/sohag-mbstu-ict/ChatBot/blob/main/Screenshots/chat_with_multiple_pdf.png)
 
-Overall, chatting with multiple PDFs using PaLM 2 and LangChain enables users to access comprehensive information in a conversational manner, leveraging advanced language understanding capabilities to provide accurate and personalized responses.
+Overall, chatting with multiple PDFs using LangChain enables users to access comprehensive information in a conversational manner, leveraging advanced language understanding capabilities to provide accurate and personalized responses.
+
+
+## Future improvements
+
+Custom Training
+
+Domain-Specific Knowledge Integration
+
+Hyperparameter Tuning
+
+Data Augmentation
+
+Multi-Modal Learning
+
+Interactive Learning
+
+Multi-turn Conversations
+
+Continuous Learning
 
 
