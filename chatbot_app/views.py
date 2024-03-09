@@ -1,11 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 import streamlit as st
-import time
 import subprocess
-from chatbot_app.chatbot import chatbot_functionality
 
-def index(request):
+def ChatBot_index(request):
     # Command to run the Streamlit app
     command = ['streamlit', 'run', 'run_chatbot.py']
     

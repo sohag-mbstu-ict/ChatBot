@@ -67,7 +67,7 @@ class chatbot_functionality:
 
                 for i, message in enumerate(st.session_state.chatHistory):
                     if i % 2 == 0:
-                        chat_history_with_session_id.append({'question🚺': message.content})
+                        chat_history_with_session_id.append({'user_question🚺': message.content})
                     else:
                         chat_history_with_session_id.append({'session_id': session_id, 'speaker': 'ChatBot ', 
                                                             'response_time' : response_time, 'response': message.content})
