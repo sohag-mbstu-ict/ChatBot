@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.log
+*.tmp
+*.bak
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Virtual Environment
+.venv/
+env/
+venv/
+ENV/
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Env config / API keys
+*.env
+.env.*
+.venv
+
+# Byte-compiled / cache
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# FAISS index (if serialized)
+index.faiss
+index.pkl
+index.json
+
+# PyInstaller
+*.spec
+
+# Local dev artifacts
+*.sqlite3

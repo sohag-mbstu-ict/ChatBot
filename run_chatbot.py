@@ -28,4 +28,3 @@ with st.sidebar:
 if user_question:
     chatbot_obj.user_input(user_question)
     
-    

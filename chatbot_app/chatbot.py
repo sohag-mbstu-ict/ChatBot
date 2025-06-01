@@ -3,19 +3,25 @@ from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import google.generativeai as palm
 from langchain.embeddings import GooglePalmEmbeddings
-from langchain.llms import GooglePalm
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 import os
 import time
+from langchain_groq import ChatGroq
 import random
 import string
+
  
 
 class chatbot_functionality:
     def __init__(self,api):
         os.environ['GOOGLE_API_KEY'] = api
+        groq_api_key = "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"
+        self.llm=ChatGroq(groq_api_key=groq_api_key,
+             model_name="Llama3-8b-8192")
     
     def get_pdf_text(self,pdf_docs):
         text=""
@@ -34,12 +40,12 @@ class chatbot_functionality:
         return chunks
 
     def get_vector_store(self,text_chunks):
-        embeddings = GooglePalmEmbeddings()
+        embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
         vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
         return vector_store
 
     def get_conversational_chain(self,vector_store):
-        llm=GooglePalm()
+        llm = self.llm
         memory = ConversationBufferMemory(memory_key = "chat_history", return_messages=True)
         conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=vector_store.as_retriever(), memory=memory)
         return conversation_chain
@@ -77,6 +83,4 @@ class chatbot_functionality:
                 st.write("Query is not appropiate. Please Rerun the project and enter valid query (press top right 3 dots to Rerun) ")
         else:
             st.write("Bot: Please upload PDF files and click on the Upload PDF button first.")
-    
-
     
