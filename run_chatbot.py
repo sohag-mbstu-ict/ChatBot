@@ -1,5 +1,8 @@
 import streamlit as st
 import time
+from dotenv import load_dotenv
+from pathlib import Path
+import os
 from chatbot_app.chatbot import chatbot_functionality
 
 st.set_page_config("ChatBot")
@@ -9,10 +12,12 @@ if "conversation" not in st.session_state:
     st.session_state.conversation = None
 if "chatHistory" not in st.session_state:
     st.session_state.chatHistory = None
-    
-    
-api='AIzaSyCpeOogkzyWebU0JxyrPu2mC4zK6UKb4j8'
-chatbot_obj = chatbot_functionality(api)  # create class instance
+env_path = Path(".venv")
+load_dotenv(dotenv_path=env_path)
+# Now access the API key
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+chatbot_obj = chatbot_functionality(GOOGLE_API_KEY)  # create class instance
 
 
 with st.sidebar:

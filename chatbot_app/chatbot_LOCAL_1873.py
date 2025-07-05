@@ -17,9 +17,10 @@ import string
  
 
 class chatbot_functionality:
-    def __init__(self,GOOGLE_API_KEY):
-        os.environ['GOOGLE_API_KEY'] = GOOGLE_API_KEY
-        self.llm= ChatGoogleGenerativeAI(model="gemini-2.0-flash-001")
+    def __init__(self,api,groq_api_key):
+        os.environ['GOOGLE_API_KEY'] = api
+        self.llm=ChatGroq(groq_api_key=groq_api_key,
+             model_name="Llama3-8b-8192")
     
     def get_pdf_text(self,pdf_docs):
         text=""
